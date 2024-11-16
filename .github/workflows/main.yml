@@ -29,7 +29,10 @@ jobs:
   deploy:
     runs-on: windows-latest
     needs: test # condition en el deploy hy7sal lama el test yt3ml el awal
-    if: $ {{ always() }}  # 34an el deploy ye7sal 7ta lw el test failed
+    if: ${{ always() }}  # 34an el deploy ye7sal 7ta lw el test failed
     steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+        
       - name: Deploy application
         run: echo 'Deploying...'
